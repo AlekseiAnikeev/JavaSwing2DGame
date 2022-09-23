@@ -25,7 +25,6 @@ public class AIManager {
     }
 
     private void transitionTo(String nextState) {
-        System.out.println("переход в следующее состояние: " + nextState);
         switch (nextState) {
             case "wander":
                 currentAIState = new Wander();

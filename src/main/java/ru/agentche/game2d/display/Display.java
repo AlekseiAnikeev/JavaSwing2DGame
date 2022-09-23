@@ -30,7 +30,7 @@ public class Display extends JFrame {
         pack();
 
         //для отрисовки следующей картинки и удаления предыдущей(чтобы экран не мерцал)
-        canvas.createBufferStrategy(3);
+        canvas.createBufferStrategy(2);
 
         setLocationRelativeTo(null);
         setVisible(true);
