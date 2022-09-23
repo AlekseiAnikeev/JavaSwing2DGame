@@ -1,5 +1,6 @@
 package ru.agentche.game2d.map;
 
+import ru.agentche.game2d.core.Position;
 import ru.agentche.game2d.core.Size;
 import ru.agentche.game2d.gfx.SpriteLibrary;
 
@@ -20,7 +21,7 @@ public class GameMap {
     }
 
     private void initializeTiles(SpriteLibrary spriteLibrary) {
-        for(Tile[] row : tiles) {
+        for (Tile[] row : tiles) {
             Arrays.fill(row, new Tile(spriteLibrary));
         }
     }
@@ -35,5 +36,11 @@ public class GameMap {
 
     public int getHeight() {
         return tiles[0].length * SPRITE_SIZE;
+    }
+
+    public Position getRandomPosition() {
+        double x = Math.random() * tiles.length * SPRITE_SIZE;
+        double y = Math.random() * tiles[0].length * SPRITE_SIZE;
+        return new Position(x, y);
     }
 }

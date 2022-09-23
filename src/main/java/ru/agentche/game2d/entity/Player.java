@@ -1,6 +1,7 @@
 package ru.agentche.game2d.entity;
 
 import ru.agentche.game2d.controller.Controller;
+import ru.agentche.game2d.game.state.State;
 import ru.agentche.game2d.gfx.SpriteLibrary;
 
 /**
@@ -12,11 +13,4 @@ public class Player extends MovingEntity {
     public Player(Controller controller, SpriteLibrary spriteLibrary) {
         super(controller, spriteLibrary);
     }
-
-    @Override
-    public void update() {
-        super.update();
-    }
-
-
 }

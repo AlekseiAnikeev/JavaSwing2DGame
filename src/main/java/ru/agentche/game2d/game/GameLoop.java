@@ -1,15 +1,14 @@
 package ru.agentche.game2d.game;
 
-import ru.agentche.game2d.game.Game;
-
 /**
  * @author Aleksey Anikeev aka AgentChe
  * Date of creation: 21.09.2022
  */
 public class GameLoop implements Runnable {
+    public static final int UPDATES_PER_SECOND = 60;
     private Game game;
     private boolean running;
-    private final double updateRate = 1.0d / 60.0d;
+    private final double updateRate = 1.0d / UPDATES_PER_SECOND;
 
     private long nextStateTime;
     private int fps;

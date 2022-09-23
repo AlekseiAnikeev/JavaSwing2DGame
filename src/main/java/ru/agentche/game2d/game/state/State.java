@@ -1,8 +1,10 @@
 package ru.agentche.game2d.game.state;
 
+import ru.agentche.game2d.core.Position;
 import ru.agentche.game2d.core.Size;
 import ru.agentche.game2d.display.Camera;
 import ru.agentche.game2d.entity.GameObject;
+import ru.agentche.game2d.game.Time;
 import ru.agentche.game2d.gfx.SpriteLibrary;
 import ru.agentche.game2d.input.Input;
 import ru.agentche.game2d.map.GameMap;
@@ -22,17 +24,19 @@ public abstract class State {
     protected SpriteLibrary spriteLibrary;
     protected Input input;
     protected Camera camera;
+    protected Time time;
 
     public State(Size windowSize, Input input) {
         this.input = input;
-        gameObject = new ArrayList<>();
-        spriteLibrary = new SpriteLibrary();
-        camera = new Camera(windowSize);
+        this.gameObject = new ArrayList<>();
+        this.spriteLibrary = new SpriteLibrary();
+        this.camera = new Camera(windowSize);
+        this.time = new Time();
     }
 
     public void update() {
         sortObjectsByPosition();
-        gameObject.forEach(GameObject::update);
+        gameObject.forEach(gameObject -> gameObject.update(this));
         camera.update(this);
     }
 
@@ -56,5 +60,13 @@ public abstract class State {
 
     public Camera getCamera() {
         return camera;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public Position getRandomPosition() {
+        return gameMap.getRandomPosition();
     }
 }

@@ -2,6 +2,7 @@ package ru.agentche.game2d.entity;
 
 import ru.agentche.game2d.core.Position;
 import ru.agentche.game2d.core.Size;
+import ru.agentche.game2d.game.state.State;
 
 import java.awt.*;
 
@@ -18,7 +19,7 @@ public abstract class GameObject {
         size = new Size(50, 50);
     }
 
-    public abstract void update();
+    public abstract void update(State state);
 
     public abstract Image getSprite();
 

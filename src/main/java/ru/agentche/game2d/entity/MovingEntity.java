@@ -3,6 +3,7 @@ package ru.agentche.game2d.entity;
 import ru.agentche.game2d.controller.Controller;
 import ru.agentche.game2d.core.Direction;
 import ru.agentche.game2d.core.Motion;
+import ru.agentche.game2d.game.state.State;
 import ru.agentche.game2d.gfx.AnimationManager;
 import ru.agentche.game2d.gfx.SpriteLibrary;
 
@@ -23,11 +24,11 @@ public abstract class MovingEntity extends GameObject {
         this.controller = controller;
         this.motion = new Motion(2);
         this.direction = Direction.S;
-        this.animationManager = new AnimationManager(spriteLibrary.getUnit("matt"));
+        this.animationManager = new AnimationManager(spriteLibrary.getUnit("alex"));
     }
 
     @Override
-    public void update(){
+    public void update(State state){
         motion.update(controller);
         position.apply(motion);
         manageDirection();
@@ -52,5 +53,9 @@ public abstract class MovingEntity extends GameObject {
     @Override
     public Image getSprite() {
        return animationManager.getSprite();
+    }
+
+    public Controller getController() {
+        return controller;
     }
 }
