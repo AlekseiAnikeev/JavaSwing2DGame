@@ -1,7 +1,6 @@
 package ru.agentche.game2d.gfx;
 
 import ru.agentche.game2d.core.Direction;
-import ru.agentche.game2d.game.Game;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

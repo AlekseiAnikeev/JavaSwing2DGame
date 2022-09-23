@@ -28,7 +28,7 @@ public abstract class MovingEntity extends GameObject {
     }
 
     @Override
-    public void update(State state){
+    public void update(State state) {
         motion.update(controller);
         position.apply(motion);
         manageDirection();
@@ -37,7 +37,7 @@ public abstract class MovingEntity extends GameObject {
     }
 
     private void decideAnimation() {
-        if(motion.isMoving()){
+        if (motion.isMoving()) {
             animationManager.playAnimation("walk");
         } else {
             animationManager.playAnimation("stand");
@@ -45,14 +45,14 @@ public abstract class MovingEntity extends GameObject {
     }
 
     private void manageDirection() {
-        if(motion.isMoving()) {
+        if (motion.isMoving()) {
             this.direction = Direction.fromMotion(motion);
         }
     }
 
     @Override
     public Image getSprite() {
-       return animationManager.getSprite();
+        return animationManager.getSprite();
     }
 
     public Controller getController() {

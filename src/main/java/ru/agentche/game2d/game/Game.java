@@ -12,10 +12,10 @@ import ru.agentche.game2d.input.Input;
  */
 public class Game {
     public static int SPRITE_SIZE = 64;
-    private Display display;
+    private final Display display;
 
-    private Input input;
-    private State state;
+    private final Input input;
+    private final State state;
 
 
     public Game(int width, int height) {

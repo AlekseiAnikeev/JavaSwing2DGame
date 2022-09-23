@@ -5,8 +5,8 @@ package ru.agentche.game2d.core;
  * Date of creation: 21.09.2022
  */
 public class Size {
-    private int height;
-    private int width;
+    private final int height;
+    private final int width;
 
     public Size(int width, int height) {
         this.height = height;

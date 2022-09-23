@@ -11,7 +11,7 @@ import ru.agentche.game2d.gfx.SpriteLibrary;
  * Date of creation: 23.09.2022
  */
 public class NPC extends MovingEntity {
-    private AIManager aiManager;
+    private final AIManager aiManager;
 
     public NPC(Controller controller, SpriteLibrary spriteLibrary) {
         super(controller, spriteLibrary);

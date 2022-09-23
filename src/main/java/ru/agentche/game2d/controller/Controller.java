@@ -6,7 +6,10 @@ package ru.agentche.game2d.controller;
  */
 public interface Controller {
     boolean isRequestingUp();
+
     boolean isRequestingDown();
+
     boolean isRequestingRight();
+
     boolean isRequestingLeft();
 }

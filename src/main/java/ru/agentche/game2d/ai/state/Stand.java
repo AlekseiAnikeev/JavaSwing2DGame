@@ -8,13 +8,14 @@ import ru.agentche.game2d.game.state.State;
  * @author Aleksey Anikeev aka AgentChe
  * Date of creation: 23.09.2022
  */
-public class Stand extends AIState{
+public class Stand extends AIState {
 
     // сколько времени нпц стоит
     private int updatesAlive;
+
     @Override
     protected AITransition initializeTransition() {
-        return new AITransition("wander", ((state, currentCharacter)-> updatesAlive >= state.getTime().getUpdatesFromSeconds(3)));
+        return new AITransition("wander", ((state, currentCharacter) -> updatesAlive >= state.getTime().getUpdatesFromSeconds(3)));
     }
 
     @Override

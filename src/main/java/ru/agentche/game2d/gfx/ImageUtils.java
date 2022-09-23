@@ -10,8 +10,8 @@ import java.io.IOException;
  */
 public class ImageUtils {
 
-    public static Image loadImage(String filePath){
-        try{
+    public static Image loadImage(String filePath) {
+        try {
             return ImageIO.read(ImageUtils.class.getResource(filePath));
         } catch (IOException e) {
             System.out.println("Файл по пути: " + filePath + " не найден!");

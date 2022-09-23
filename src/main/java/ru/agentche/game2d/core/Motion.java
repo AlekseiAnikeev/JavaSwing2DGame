@@ -8,7 +8,7 @@ import ru.agentche.game2d.controller.Controller;
  */
 public class Motion {
     private Vector2D vector;
-    private double speed;
+    private final double speed;
 
     public Motion(double speed) {
         this.speed = speed;

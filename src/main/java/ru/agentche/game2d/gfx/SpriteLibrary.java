@@ -51,7 +51,7 @@ public class SpriteLibrary {
 //        tiles.put("default", image);
     }
 
-    private void loadUnits(String path){
+    private void loadUnits(String path) {
         String[] folderNames = getFolderNames(path);
         for (String folderName : folderNames) {
             SpriteSet spriteSet = new SpriteSet();

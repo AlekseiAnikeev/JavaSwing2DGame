@@ -13,7 +13,7 @@ public enum Direction {
     NE(5),
     E(6),
     SE(7);
-    private int animationRow;
+    private final int animationRow;
 
     Direction(int animationRow) {
         this.animationRow = animationRow;

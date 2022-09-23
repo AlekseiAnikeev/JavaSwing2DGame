@@ -8,8 +8,8 @@ import ru.agentche.game2d.game.state.State;
  * Date of creation: 23.09.2022
  */
 public class AITransition {
-    private String nextState;
-    private AICondition condition;
+    private final String nextState;
+    private final AICondition condition;
 
     public AITransition(String nextState, AICondition condition) {
         this.nextState = nextState;
@@ -17,7 +17,7 @@ public class AITransition {
     }
 
     public boolean shouldTransition(State state, NPC currentCharacter) {
-        return condition.isMet(state,currentCharacter);
+        return condition.isMet(state, currentCharacter);
     }
 
     public String getNextState() {

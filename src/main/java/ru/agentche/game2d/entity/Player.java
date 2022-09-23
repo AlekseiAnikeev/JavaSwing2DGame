@@ -1,7 +1,6 @@
 package ru.agentche.game2d.entity;
 
 import ru.agentche.game2d.controller.Controller;
-import ru.agentche.game2d.game.state.State;
 import ru.agentche.game2d.gfx.SpriteLibrary;
 
 /**

@@ -12,8 +12,9 @@ import java.awt.image.BufferStrategy;
  * Date of creation: 21.09.2022
  */
 public class Display extends JFrame {
-    private Canvas canvas;
-    private Renderer renderer;
+    private final Canvas canvas;
+    private final Renderer renderer;
+
     public Display(int width, int height, Input input) {
         setTitle("Новая 2D игра");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,7 +43,7 @@ public class Display extends JFrame {
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
-        renderer.render(state,graphics);
+        renderer.render(state, graphics);
 
         graphics.dispose();
 

@@ -13,8 +13,8 @@ import java.util.Optional;
  * Date of creation: 23.09.2022
  */
 public class Camera {
-    private Position position;
-    private Size windowSize;
+    private final Position position;
+    private final Size windowSize;
 
     private Optional<GameObject> objectWithFocus;
 
@@ -30,8 +30,8 @@ public class Camera {
     public void update(State state) {
         if (objectWithFocus.isPresent()) {
             Position objectPosition = objectWithFocus.get().getPosition();
-            this.position.setX(objectPosition.getX() - windowSize.getWidth() / 2);
-            this.position.setY(objectPosition.getY() - windowSize.getHeight() / 2);
+            this.position.setX(objectPosition.getX() - (double) windowSize.getWidth() / 2);
+            this.position.setY(objectPosition.getY() - (double) windowSize.getHeight() / 2);
             //ограничим камеру внутри сетки плиток(чтобы не видеть черный экран за картой)
 
             clampWithinBounds(state);
@@ -46,10 +46,10 @@ public class Camera {
         if (position.getY() < 0) {
             position.setY(0);
         }
-        if(position.getX() + windowSize.getWidth() > state.getGameMap().getWidth()) {
+        if (position.getX() + windowSize.getWidth() > state.getGameMap().getWidth()) {
             position.setX(state.getGameMap().getWidth() - windowSize.getWidth());
         }
-        if(position.getY() + windowSize.getHeight() > state.getGameMap().getHeight()) {
+        if (position.getY() + windowSize.getHeight() > state.getGameMap().getHeight()) {
             position.setY(state.getGameMap().getHeight() - windowSize.getHeight());
         }
     }

@@ -13,6 +13,7 @@ public class Input implements KeyListener {
     public Input() {
         this.pressed = new boolean[255];
     }
+
     public boolean isPressed(int keyCode) {
         return pressed[keyCode];
     }

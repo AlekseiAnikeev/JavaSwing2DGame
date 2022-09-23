@@ -6,7 +6,7 @@ package ru.agentche.game2d.game;
  */
 public class GameLoop implements Runnable {
     public static final int UPDATES_PER_SECOND = 60;
-    private Game game;
+    private final Game game;
     private boolean running;
     private final double updateRate = 1.0d / UPDATES_PER_SECOND;
 
@@ -48,7 +48,7 @@ public class GameLoop implements Runnable {
 
     private void printStats() {
         if (System.currentTimeMillis() > nextStateTime) {
-            System.out.println(String.format("FPS(кадры в секунду): %d, UPS(обновления в секунду): %d", fps, ups));
+            System.out.printf("FPS(кадры в секунду): %d, UPS(обновления в секунду): %d%n", fps, ups);
             fps = 0;
             ups = 0;
             nextStateTime = System.currentTimeMillis() + 1000;

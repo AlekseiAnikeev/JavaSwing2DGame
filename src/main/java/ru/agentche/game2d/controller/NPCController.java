@@ -11,6 +11,7 @@ public class NPCController implements Controller {
     private boolean right;
     private boolean down;
     private boolean left;
+
     @Override
     public boolean isRequestingUp() {
         return up;

@@ -11,11 +11,11 @@ import java.awt.*;
 public class Tile {
     private Image sprite;
 
-    public Tile(SpriteLibrary spriteLibrary){
+    public Tile(SpriteLibrary spriteLibrary) {
         this.sprite = spriteLibrary.getTile("woodfloor");
     }
 
-    public Image getSprite(){
+    public Image getSprite() {
         return sprite;
     }
 }

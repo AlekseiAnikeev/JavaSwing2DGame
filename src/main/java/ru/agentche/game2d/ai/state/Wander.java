@@ -13,8 +13,8 @@ import java.util.List;
  * @author Aleksey Anikeev aka AgentChe
  * Date of creation: 23.09.2022
  */
-public class Wander extends AIState{
-    private List<Position> targets;
+public class Wander extends AIState {
+    private final List<Position> targets;
 
     public Wander() {
         super();
@@ -28,14 +28,14 @@ public class Wander extends AIState{
 
     @Override
     public void update(State state, NPC currentCharacter) {
-        if(targets.isEmpty()) {
+        if (targets.isEmpty()) {
             targets.add(state.getRandomPosition());
         }
 
         NPCController controller = (NPCController) currentCharacter.getController();
         controller.moveToTarget(targets.get(0), currentCharacter.getPosition());
 
-        if(arrived(currentCharacter)){
+        if (arrived(currentCharacter)) {
             // чтобы после смены состояния контроллер перестал эмулировать нажатие клавиш
             controller.stop();
         }
