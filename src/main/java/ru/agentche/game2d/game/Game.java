@@ -17,11 +17,10 @@ public class Game {
     private final Input input;
     private final State state;
 
-
     public Game(int width, int height) {
-        input = new Input();
-        display = new Display(width, height, input);
-        state = new GameState(new Size(width, height), input);
+        this.input = new Input();
+        this.display = new Display(width, height, input);
+        this.state = new GameState(new Size(width, height), input);
     }
 
     public void update() {

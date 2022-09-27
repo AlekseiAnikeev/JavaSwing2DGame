@@ -5,6 +5,7 @@ import ru.agentche.game2d.controller.PlayerController;
 import ru.agentche.game2d.core.Size;
 import ru.agentche.game2d.entity.NPC;
 import ru.agentche.game2d.entity.Player;
+import ru.agentche.game2d.entity.effect.Sick;
 import ru.agentche.game2d.input.Input;
 import ru.agentche.game2d.map.GameMap;
 
@@ -32,6 +33,7 @@ public class GameState extends State {
         for (int i = 0; i < numberOfNPCs; i++) {
             NPC npc = new NPC(new NPCController(), spriteLibrary);
             npc.setPosition(gameMap.getRandomPosition());
+            npc.addEffect(new Sick());
             gameObject.add(npc);
         }
     }

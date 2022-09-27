@@ -16,9 +16,9 @@ import java.util.Map;
 public class SpriteLibrary {
 
     //сохраняет несколько листов с анимацией принадлежащих к одному персонажу
-    private Map<String, SpriteSet> units;
+    private final Map<String, SpriteSet> units;
     //мапа с плитками
-    private Map<String, Image> tiles;
+    private final Map<String, Image> tiles;
 
     public SpriteLibrary() {
         units = new HashMap<>();
@@ -40,15 +40,6 @@ public class SpriteLibrary {
                     ImageUtils.loadImage(path + "/" + filename)
             );
         }
-//        сетка вместо плиток
-//        BufferedImage image = new BufferedImage(SPRITE_SIZE, SPRITE_SIZE,BufferedImage.TYPE_INT_RGB);
-//        Graphics2D graphics = image.createGraphics();
-//        graphics.setColor(Color.RED);
-//        graphics.drawRect(0,0,SPRITE_SIZE,SPRITE_SIZE);
-//
-//        graphics.dispose();
-//
-//        tiles.put("default", image);
     }
 
     private void loadUnits(String path) {
@@ -71,6 +62,7 @@ public class SpriteLibrary {
     //поиск файлов в каталоге
     private String[] getImageInFolder(String basePath) {
         URL resource = SpriteLibrary.class.getResource(basePath);
+        assert resource != null;
         File file = new File(resource.getFile());
         return file.list((current, name) -> new File(current, name).isFile());
 
@@ -79,6 +71,7 @@ public class SpriteLibrary {
     //поиск каталогов по пути
     private String[] getFolderNames(String basePath) {
         URL resource = SpriteLibrary.class.getResource(basePath);
+        assert resource != null;
         File file = new File(resource.getFile());
         return file.list((current, name) -> new File(current, name).isDirectory());
     }

@@ -8,7 +8,6 @@ import ru.agentche.game2d.gfx.SpriteLibrary;
  * Date of creation: 21.09.2022
  */
 public class Player extends MovingEntity {
-
     public Player(Controller controller, SpriteLibrary spriteLibrary) {
         super(controller, spriteLibrary);
     }

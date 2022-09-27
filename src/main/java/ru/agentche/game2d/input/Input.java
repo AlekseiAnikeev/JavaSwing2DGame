@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
  * Date of creation: 21.09.2022
  */
 public class Input implements KeyListener {
-    private boolean[] pressed;
+    private final boolean[] pressed;
 
     public Input() {
         this.pressed = new boolean[255];

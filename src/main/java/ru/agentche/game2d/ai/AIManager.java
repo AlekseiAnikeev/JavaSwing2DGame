@@ -26,12 +26,9 @@ public class AIManager {
 
     private void transitionTo(String nextState) {
         switch (nextState) {
-            case "wander":
-                currentAIState = new Wander();
-                return;
-            case "stand":
-            default:
-                currentAIState = new Stand();
+            case "wander" -> currentAIState = new Wander();
+
+            case "stand", default -> currentAIState = new Stand();
         }
     }
 }

@@ -82,7 +82,6 @@ public class Camera {
                 gameObject.getSize().getWidth(),
                 gameObject.getSize().getHeight()
         );
-
     }
 
     public Size getSize() {

@@ -12,10 +12,11 @@ import static ru.agentche.game2d.game.Game.SPRITE_SIZE;
  * Date of creation: 22.09.2022
  */
 public class AnimationManager {
-    private SpriteSet spriteSet;
+    private final SpriteSet spriteSet;
+    private String currentAnimationName;
     private BufferedImage currentAnimationSheet;
     //количество обновлений анимаций за кадр
-    private int updatePerFrame;
+    private final int updatePerFrame;
     private int currentFrameTime;
     //для отслеживания текущего кадра
     private int frameIndex;
@@ -28,6 +29,7 @@ public class AnimationManager {
         this.frameIndex = 0;
         this.currentFrameTime = 0;
         this.directionIndex = 0;
+        this.currentAnimationName = "";
         playAnimation("stand");
     }
 
@@ -54,6 +56,10 @@ public class AnimationManager {
     }
 
     public void playAnimation(String name) {
-        this.currentAnimationSheet = (BufferedImage) spriteSet.get(name);
+        if (!name.equals(currentAnimationName)) {
+            this.currentAnimationSheet = (BufferedImage) spriteSet.get(name);
+            currentAnimationName = name;
+            frameIndex = 0;
+        }
     }
 }

@@ -15,7 +15,7 @@ import static ru.agentche.game2d.game.Game.SPRITE_SIZE;
  */
 public class GameMap {
     private static final int SAFETY_SPACE = 2;
-    private Tile[][] tiles;
+    private final Tile[][] tiles;
 
     public GameMap(Size size, SpriteLibrary spriteLibrary) {
         tiles = new Tile[size.getWidth()][size.getHeight()];
@@ -55,8 +55,8 @@ public class GameMap {
 
     public Position getViewableEndingGridPosition(Camera camera) {
         return new Position(
-                Math.min(tiles.length, camera.getPosition().getX() / SPRITE_SIZE + camera.getSize().getWidth() / SPRITE_SIZE + SAFETY_SPACE),
-                Math.min(tiles[0].length, camera.getPosition().getY() / SPRITE_SIZE + camera.getSize().getHeight() / SPRITE_SIZE + SAFETY_SPACE)
+                Math.min(tiles.length, camera.getPosition().getX() / SPRITE_SIZE + (double) camera.getSize().getWidth() / SPRITE_SIZE + SAFETY_SPACE),
+                Math.min(tiles[0].length, camera.getPosition().getY() / SPRITE_SIZE + (double) camera.getSize().getHeight() / SPRITE_SIZE + SAFETY_SPACE)
         );
     }
 }

@@ -3,7 +3,6 @@ package ru.agentche.game2d.display;
 import ru.agentche.game2d.core.Position;
 import ru.agentche.game2d.game.state.State;
 import ru.agentche.game2d.map.GameMap;
-import ru.agentche.game2d.map.Tile;
 
 import java.awt.*;
 
