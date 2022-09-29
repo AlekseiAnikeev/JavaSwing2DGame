@@ -42,6 +42,10 @@ public class SpriteLibrary {
         }
     }
 
+    /**
+     * Метод загрузки листа анимаций
+     * @param path путь к файлу
+     */
     private void loadUnits(String path) {
         String[] folderNames = getFolderNames(path);
         for (String folderName : folderNames) {
@@ -59,7 +63,10 @@ public class SpriteLibrary {
         }
     }
 
-    //поиск файлов в каталоге
+    /**
+     * Метод поиска файлов в каталоге
+     * @return список файлов в каталоге
+     */
     private String[] getImageInFolder(String basePath) {
         URL resource = SpriteLibrary.class.getResource(basePath);
         assert resource != null;
@@ -68,7 +75,11 @@ public class SpriteLibrary {
 
     }
 
-    //поиск каталогов по пути
+    /**
+     * Метод поиска каталогов по указанному пути
+     * @param basePath - базовый каталог
+     * @return - список каталогов
+     */
     private String[] getFolderNames(String basePath) {
         URL resource = SpriteLibrary.class.getResource(basePath);
         assert resource != null;

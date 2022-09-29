@@ -22,7 +22,7 @@ public class GameState extends State {
 
     private void initializeCharacters() {
         Player player = new Player(new PlayerController(input), spriteLibrary);
-        gameObject.add(player);
+        gameObjects.add(player);
         //следим за игроком
         camera.focusOn(player);
 
@@ -34,7 +34,7 @@ public class GameState extends State {
             NPC npc = new NPC(new NPCController(), spriteLibrary);
             npc.setPosition(gameMap.getRandomPosition());
             npc.addEffect(new Sick());
-            gameObject.add(npc);
+            gameObjects.add(npc);
         }
     }
 }

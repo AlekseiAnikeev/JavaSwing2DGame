@@ -23,4 +23,14 @@ public class NPC extends MovingEntity {
         super.update(state);
         aiManager.update(state, this);
     }
+
+    /**
+     * Реакция на столкновение
+     */
+    @Override
+    protected void handleCollision(GameObject other) {
+        if (other instanceof Player) {
+            motion.stop(willCollideX(other), willCollideY(other));
+        }
+    }
 }

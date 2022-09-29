@@ -18,6 +18,10 @@ public class ImageUtils {
     public static final int ALPHA_BIT_MASKED = 2;
     public static final int ALPHA_BLEND = 3;
 
+    /**
+     * Метод для загрузки изображений
+     * @param filePath - путь до файла
+     */
     public static Image loadImage(String filePath) {
         try {
             Image imageFromDisk = ImageIO.read(Objects.requireNonNull(ImageUtils.class.getResource(filePath)));

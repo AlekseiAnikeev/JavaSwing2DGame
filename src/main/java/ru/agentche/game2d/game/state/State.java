@@ -12,6 +12,7 @@ import ru.agentche.game2d.map.GameMap;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Aleksey Anikeev aka AgentChe
@@ -20,7 +21,7 @@ import java.util.List;
 public abstract class State {
 
     protected GameMap gameMap;
-    protected List<GameObject> gameObject;
+    protected List<GameObject> gameObjects;
     protected SpriteLibrary spriteLibrary;
     protected Input input;
     protected Camera camera;
@@ -28,7 +29,7 @@ public abstract class State {
 
     public State(Size windowSize, Input input) {
         this.input = input;
-        this.gameObject = new ArrayList<>();
+        this.gameObjects = new ArrayList<>();
         this.spriteLibrary = new SpriteLibrary();
         this.camera = new Camera(windowSize);
         this.time = new Time();
@@ -36,7 +37,7 @@ public abstract class State {
 
     public void update() {
         sortObjectsByPosition();
-        gameObject.forEach(gameObject -> gameObject.update(this));
+        gameObjects.forEach(gameObjects -> gameObjects.update(this));
         camera.update(this);
     }
 
@@ -47,11 +48,11 @@ public abstract class State {
      * находясь возле них
      */
     private void sortObjectsByPosition() {
-        gameObject.sort(Comparator.comparing(gameObject -> gameObject.getPosition().getY()));
+        gameObjects.sort(Comparator.comparing(gameObjects -> gameObjects.getPosition().getY()));
     }
 
     public List<GameObject> getGameObject() {
-        return gameObject;
+        return gameObjects;
     }
 
     public GameMap getGameMap() {
@@ -68,5 +69,14 @@ public abstract class State {
 
     public Position getRandomPosition() {
         return gameMap.getRandomPosition();
+    }
+
+    /**
+     * Метод получения списка столкновений
+     */
+    public List<GameObject> getCollidingGameObjects(GameObject gameObject) {
+        return gameObjects.stream()
+                .filter(other -> other.collidesWith(gameObject))
+                .collect(Collectors.toList());
     }
 }

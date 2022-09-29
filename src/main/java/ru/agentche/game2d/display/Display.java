@@ -14,6 +14,7 @@ import java.awt.image.BufferStrategy;
 public class Display extends JFrame {
     private final Canvas canvas;
     private final Renderer renderer;
+    private final DebugRenderer debugRenderer;
 
     public Display(int width, int height, Input input) {
         setTitle("Новая 2D игра");
@@ -21,6 +22,7 @@ public class Display extends JFrame {
         setResizable(false);
 
         this.renderer = new Renderer();
+        this.debugRenderer = new DebugRenderer();
 
         canvas = new Canvas();
         canvas.setPreferredSize(new Dimension(width, height));
@@ -36,7 +38,7 @@ public class Display extends JFrame {
         setVisible(true);
     }
 
-    public void render(State state) {
+    public void render(State state, boolean debugMode) {
         BufferStrategy bufferStrategy = canvas.getBufferStrategy();
         Graphics graphics = bufferStrategy.getDrawGraphics();
 
@@ -44,6 +46,9 @@ public class Display extends JFrame {
         graphics.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         renderer.render(state, graphics);
+        if(debugMode) {
+            debugRenderer.render(state, graphics);
+        }
 
         graphics.dispose();
 

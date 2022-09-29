@@ -1,5 +1,6 @@
 package ru.agentche.game2d.entity;
 
+import ru.agentche.game2d.core.CollisionBox;
 import ru.agentche.game2d.core.Position;
 import ru.agentche.game2d.core.Size;
 import ru.agentche.game2d.game.state.State;
@@ -22,6 +23,10 @@ public abstract class GameObject {
     public abstract void update(State state);
 
     public abstract Image getSprite();
+    //для проверки столкновений
+    public abstract CollisionBox getCollisionBox();
+    //для проверки столкновений
+    public abstract boolean collidesWith(GameObject other);
 
     public Position getPosition() {
         return position;
