@@ -1,3 +1,4 @@
+![demo](https://github.com/AlekseiAnikeev/JavaSwing2DGame/blob/main/demo.png)
 # Java Swing Game 2D
 
 ### На текущей стадии:
